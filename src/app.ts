@@ -1,5 +1,6 @@
 import express, { json } from "express";
 import router from "./routes";
+import cors from "cors";
 
 function createApp() {
   const app = express();
@@ -7,6 +8,8 @@ function createApp() {
   app.use(json());
 
   app.use("/api", router);
+
+  app.use(cors());
 
   return app;
 }
